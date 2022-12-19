@@ -1,13 +1,33 @@
 <?php
-?>
+$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+$db = new PDO('mysql:host=localhost;dbname=bdd dream-gym','root','',array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-<div class="col-md-4">
-               <div class="card mb-4 text-white bg-dark">
-                  <img class="card-img-top" src={`http://localhost:3000/img/${programme.image}`} alt="Card"/>
-                  <div class="card-body">
-                     <h5 class="card-title">{ programme.name }</h5>
-                     <p class="card-text">{ programme.texte }</p>
-                     <a href="#" className="btn btn-outline-custom btn-sm btn-read-more">{programme.texte_btn}</a>
-                  </div>
-               </div>
+//$sql = 'SELECT * FROM `news`';
+//$sql = 'SELECT auteur, titre, contenu FROM news';
+$sql = 'SELECT * FROM programmes ';
+$requete = $db->query($sql);
+
+While ($news = $requete->fetch()) {
+    echo '<div class="col-md-4">'.
+    '<div class="card mb-4 text-white bg-dark">'.
+    '<img class="card-img-top" src='.$news['image'].' alt="Card"/>'.
+        '<div class="card-body">'.
+        '<h5 class="card-title">'.$news['name'].'</h5>'.
+        '<p class="card-text">'.$news['texte'].'</p>'.
+        '<a href="#" class="btn btn-outline-custom btn-sm btn-read-more">'.$news['texte_btn'].'</a>'.
+            '</div>'.
+    '</div>'.
+'</div>';
+} 
+    ?>
+
+<!-- <div class="col-md-4">
+    <div class="card mb-4 text-white bg-dark">
+    <?php print '<img class="card-img-top" src='.$news['image'].' alt="Card"/>'?>
+        <div class="card-body">
+        <?php print '<h5 class="card-title">'.$news['name'].'</h5>'?>
+        <?php print '<p class="card-text">'.$news['texte'].'</p>'?>
+        <?php print '<a href="#" className="btn btn-outline-custom btn-sm btn-read-more">'.$news['texte_btn'].'</a>'?>
             </div>
+    </div>
+</div> -->

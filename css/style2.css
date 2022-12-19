@@ -2,7 +2,7 @@
     font-family: "CooperHewitt";
     src: url("../Font/cooper-hewitt/CooperHewitt-Medium.otf");
 }
-@import url("../css/style.css");
+@import url("./style.css");
 
 body {
     margin: 0;
@@ -55,7 +55,9 @@ h1 {
 
 
 /* ------------------------- Début Card ------------------------------ */
-
+.backgroundProgramme {
+    background-color: #9aa49a;
+}
 .card1.container {
   padding-right: 0;
 }

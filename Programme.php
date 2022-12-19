@@ -27,7 +27,14 @@
 <body>
     <!-- place navbar here -->
     <?php include("Header.php"); ?>
-    <?php include("Items.php"); ?>
+    <div class="backgroundProgramme">
+      <h1 class="pb-3 mb-4 font-italic border-bottom">Nos programmes</h1>
+      <div class="container card1">
+        <div class="row">
+          <?php include("Items.php"); ?>
+        </div>
+      </div>
+    </div>
     <!-- place footer here -->
     <?php include("Footer.php"); ?>
 

@@ -2,7 +2,7 @@
 ?>
 <nav class="navbar navbar-expand-md navbar-light bg-custom">
         <div class="container">
-        <Link to="/"><a id="0" onClick={activeAccueil} class="navbar-brand" href="./Dream-gym.php"><img src="Assets/Logo transparent.png" alt="Logo" width="115px"/></a></Link>
+        <Link to="/"><a id="0" onclick="activeAccueil()" class="navbar-brand" href="./Dream-gym.php"><img src="Assets/Logo transparent.png" alt="Logo" width="115px"/></a></Link>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,13 +10,13 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <Link to="/"><a id = "1" class="nav-link active" href="./Dream-gym.php" aria-current="page" onClick={activeState}>Accueil</a></Link>
+                        <Link to="/"><a id = "1" class="nav-link active" href="./Dream-gym.php" aria-current="page" onclick="activeState()">Accueil</a></Link>
                     </li>
                     <li class="nav-item">
-                        <a id = "2" class="nav-link" href="#" onClick={activeState}>Concept</a>
+                        <a id = "2" class="nav-link" href="#" onclick="activeState()">Concept</a>
                     </li>
                     <li class="nav-item">
-                    <Link to="/Programmes"><a id = "3" class="nav-link" href="./Programme.php" onClick={activeState}>Programmes</a></Link>
+                    <Link to="/Programmes"><a id = "3" class="nav-link" href="./Programme.php" onclick="activeState()">Programmes</a></Link>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Giga+</a>
