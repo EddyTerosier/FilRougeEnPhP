@@ -21,8 +21,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Giga+</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" id="4" href="Abonnement-premium.php">Abonnement premium</a>
-                            <a class="dropdown-item" id="5" href="Salle-premium.php">Salle premium</a>
+                            <a class="dropdown-item" id="4" href="Dream-gym.php#ancre">Inscription</a>
+                            <a class="dropdown-item" id="5" href="form.php">Connexion</a>
                         </div>
                     </li>
                 </ul>

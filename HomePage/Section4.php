@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
     require_once("./include.php");
 
     if(!empty($_POST)){
@@ -13,10 +13,6 @@
         $user_birthday = trim($user_birthday);
         $user_mail = trim($user_mail);
         $user_password = trim($user_password);
-        // $adresse = trim($adresse);
-        // $cp = trim($cp);
-        // $ville = trim($ville);
-        // $pays = trim($pays);
         
         if(empty($user_mail)){
             $valid = false;
@@ -43,29 +39,26 @@
     if($valid){
         $crypt_user_password = password_hash($user_password, PASSWORD_ARGON2ID);
 
-        if (password_verify($user_password, $crypt_user_password)){
-            echo 'Le mot de passe est valide';
-        }else{
-            echo "Le mot de passe n'est pas valide";
-        }
+        // if (password_verify($user_password, $crypt_user_password)){
+        //     echo 'Le mot de passe est valide';
+        // }else{
+        //     echo "Le mot de passe n'est pas valide";
+        // }
+    }
         
         $date_creation = date('Y-m-d H:i:s');
         $date_connexion = date('Y-m-d H:i:s');
 
         $req = $DB->prepare("INSERT INTO utilisateur(Sexe, Nom, Prénom, DateDeNaissance, Email, MotDePasse, date_creation, date_connexion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $req->execute(array($user_sex, $user_name, $user_firstname, $user_birthday, $user_mail, $user_password, $date_creation, $date_connexion));
+        $req->execute(array($user_sex, $user_name, $user_firstname, $user_birthday, $user_mail, $crypt_user_password, $date_creation, $date_connexion));
 
-        // header('Location: Dream-gym.php');
+    
+        header('Location: ./form.php');
         exit;
-
-    }else{
-        echo "regarde ce qui va pas il y a une faute";
-        //pas d'insertion (affichage message d'erreur)
-    }
     }
 }
-?>
-    <div class="banniere_4">
+?> -->
+    <div class="banniere_4" id="ancre">
             <span class="box">
                 <h1>Inscris-toi !</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nostrum porro! Optio incidunt, numquam id quos, eius at laudantium explicabo atque blanditiis voluptatum recusandae possimus quasi perferendis cumque ipsum quae.</p>

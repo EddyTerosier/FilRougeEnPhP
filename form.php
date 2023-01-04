@@ -1,3 +1,52 @@
+<?php require_once('include.php');
+// Connexion à la base de données
+
+
+// Vérification des informations d'identification de l'utilisateur
+if (!empty($_POST)) {
+    extract($_POST);
+
+    $valid = true;
+
+    // Vérification du nom d'utilisateur
+    if (empty($user_mail)) {
+        $valid = false;
+        $err_user_mail = "Veuillez saisir votre mail";
+    }
+
+    // Vérification du mot de passe
+    if (empty($user_password)) {
+        $valid = false;
+        $err_user_password = "Veuillez saisir votre mot de passe";
+    }
+
+    // Si les informations d'identification sont valides, recherche de l'utilisateur dans la base de données
+    if ($valid) {
+        $req = $DB->prepare("SELECT id, MotDePasse,Email FROM utilisateur WHERE Email = ?");
+        $req->execute(array($user_mail));
+        $mail = $req->fetch(); // Utilisation d'un autre nom de variable pour stocker le résultat de la requête SQL
+
+        // Si l'utilisateur a été trouvé, vérification du mot de passe
+        if ($mail) {
+            if (password_verify($user_password, $mail['MotDePasse'])) {
+                // Si le mot de passe est correct, connexion de l'utilisateur
+                session_start();
+                $_SESSION['auth'] = $mail;
+                header('Location: Programme.php');
+                exit;
+            } else {
+                // Si le mot de passe est incorrect, affichage d'un message d'erreur
+                $err_user_password = "Mot de passe incorrect";
+            }
+        } else {
+            // Si l'utilisateur n'a pas été trouvé, affichage d'un message d'erreur
+            $err_user_mail = "Mail incorrect";
+        }
+    }
+}
+
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -27,13 +76,36 @@
 <body>
     <!-- place navbar here -->
     <?php include("Header.php"); ?>
-    <div class="container">
-    <div class="message">
-      Félicitations pour votre inscription ! 
-      <br>
-      Vous allez recevoir un mail de confirmation. Bienvenue chez Dream-Gym !
-    </div>
-  </div>
+    <div class="banniere_4">
+            <span>
+                <h1>Bravo tu es inscrit !</h1>
+                <p>Il ne te reste plus qu'une seule étape :
+                  Connecte toi à l'aide de ton mail et de ton mot de passe.</p>
+            </span>
+            <div class="sign_in_card offset-md-1">
+                <form method="post">
+                    <fieldset class="card_content_fieldset">
+                        <legend class="first-legend">Connexion</legend>
+                        <fieldset>
+                            <legend>E-mail</legend>
+                            <label>
+                                <input class="champs" type="email" name="user_mail" placeholder="E-mail@email.com" required/>
+                            </label>
+                            <div class="error"><?php if(isset($err_user_mail)){ echo $err_user_mail;}?></div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Mot de passe</legend>
+                            <label>
+                                <input class="champs" type="password" name="user_password" placeholder="Mot de passe" required/>
+                            </label>
+                            <div><?php if(isset($err_user_password)){ echo $err_user_password;}?></div>
+                        </fieldset>
+                        <br/>
+                        <input class="btn_sign_in" type="submit" name ="inscription" value="Connexion"/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     <!-- place footer here -->
     <?php include("Footer.php"); ?>
 
