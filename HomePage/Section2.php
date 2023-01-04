@@ -1,4 +1,4 @@
-<?php
+<?php 
 ?>
 <div class="banniere_2">
         <h1 class="box">DREAM-GYM <br/>C'EST QUOI ?</h1>
