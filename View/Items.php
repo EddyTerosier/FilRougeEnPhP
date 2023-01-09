@@ -20,14 +20,3 @@ While ($news = $requete->fetch()) {
 '</div>';
 } 
     ?>
-
-<!-- <div class="col-md-4">
-    <div class="card mb-4 text-white bg-dark">
-    <?php print '<img class="card-img-top" src='.$news['image'].' alt="Card"/>'?>
-        <div class="card-body">
-        <?php print '<h5 class="card-title">'.$news['name'].'</h5>'?>
-        <?php print '<p class="card-text">'.$news['texte'].'</p>'?>
-        <?php print '<a href="#" className="btn btn-outline-custom btn-sm btn-read-more">'.$news['texte_btn'].'</a>'?>
-            </div>
-    </div>
-</div> -->

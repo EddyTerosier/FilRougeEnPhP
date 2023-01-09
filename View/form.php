@@ -57,20 +57,19 @@ if (!empty($_POST)) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta
       name="description"
-      content="DREAM-GYM created using create-react-app"
+      content="DREAM-GYM PHP"
     />
-  <link rel="icon" href="Assets/Logo classique fond foncÇ.png" />
-  <link rel="apple-touch-icon" href="Assets/Logo classique fond foncÇ.png" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="./css/style2.css" />
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="../Static/Assets/Logo classique fond foncÇ.png" />
+  <link rel="apple-touch-icon" href="../Static/Assets/Logo classique fond foncÇ.png" />
+  <link rel="stylesheet" href="../Static/css/style2.css" />
+  <link rel="stylesheet" href="../Static/css/style.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <script defer src="Animation.js"></script>
+    <script defer src="../Static/js/Animation.js"></script>
 </head>
 
 <body>
