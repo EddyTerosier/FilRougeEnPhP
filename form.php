@@ -105,6 +105,10 @@ if (!empty($_POST)) {
                     </fieldset>
                 </form>
             </div>
+            <center>
+        <h3><a href="Dream-gym.php#ancre">Pas encore inscrit ?</a></h3>
+      </center>
+  	</div>
         </div>
     <!-- place footer here -->
     <?php include("Footer.php"); ?>
