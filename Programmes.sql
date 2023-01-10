@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 19 déc. 2022 à 12:22
+-- Généré le : mar. 10 jan. 2023 à 08:51
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -73,6 +73,25 @@ CREATE TABLE IF NOT EXISTS `date` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE IF NOT EXISTS `images` (
+  `image1` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`image1`) VALUES
+('./Assets/Carousel.jpg'),
+('./Assets/Carousel.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `membre`
 --
 
@@ -93,13 +112,14 @@ CREATE TABLE IF NOT EXISTS `membre` (
   PRIMARY KEY (`idMembre`),
   KEY `FK_Membre_idAbonnement` (`idAbonnement`),
   KEY `FK_Membre_idCoach` (`idCoach`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `news`
+-- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`idMembre`, `nomMembre`, `prénomMembre`, `sexeMembre`, `dateDeNaissanceMembre`, `téléphoneMembre`, `adresseMembre`, `villeMembre`, `codePostalMembre`, `mailMembre`, `idAbonnement`, `idCoach`) VALUES ('1', 'Trs', 'Eddy', 'Homme', '23', '06', 'rue du charpentier', 'Paris', '75013', 'efehgue', NULL, NULL);
+INSERT INTO `membre` (`idMembre`, `nomMembre`, `prénomMembre`, `sexeMembre`, `dateDeNaissanceMembre`, `téléphoneMembre`, `adresseMembre`, `villeMembre`, `codePostalMembre`, `mailMembre`, `idAbonnement`, `idCoach`) VALUES
+(1, 'Trs', 'Eddy', 'Homme', 23, 6, 'rue du charpentier', 'Paris', 75013, 'efehgue', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -119,6 +139,31 @@ CREATE TABLE IF NOT EXISTS `programme` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `programmes`
+--
+
+DROP TABLE IF EXISTS `programmes`;
+CREATE TABLE IF NOT EXISTS `programmes` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `texte` text NOT NULL,
+  `name` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `texte_btn` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `programmes`
+--
+
+INSERT INTO `programmes` (`id`, `texte`, `name`, `image`, `texte_btn`) VALUES
+(1, 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', 'Débutant', '../Static/Assets/Carousel.jpg', 'Read more'),
+(2, 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', 'Intermédiaire', '../Static/Assets/Carousel3.jpg', 'Read more'),
+(3, 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', 'Expert', '../Static/Assets/Carousel2.jpg', 'Read more');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `suit`
 --
 
@@ -129,6 +174,33 @@ CREATE TABLE IF NOT EXISTS `suit` (
   PRIMARY KEY (`idMembre`,`idProgramme`),
   KEY `FK_suit_idProgramme` (`idProgramme`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `Sexe` varchar(10) NOT NULL,
+  `Nom` varchar(100) NOT NULL,
+  `Prénom` varchar(100) NOT NULL,
+  `DateDeNaissance` date NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `MotDePasse` varchar(250) NOT NULL,
+  `date_creation` datetime NOT NULL,
+  `date_connexion` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `Sexe`, `Nom`, `Prénom`, `DateDeNaissance`, `Email`, `MotDePasse`, `date_creation`, `date_connexion`) VALUES
+(67, 'on', 'Tomen', 'Samuel', '2023-01-04', 'Tomen@samuel', '$argon2id$v=19$m=65536,t=4,p=1$SExIMkJUY3FmaXZpUURMRw$pY4+KoAdkfIYlkKvRrXcTnOAgpjDGU//dOEOvRO6344', '2023-01-04 17:26:21', '2023-01-04 17:26:21');
 
 --
 -- Contraintes pour les tables déchargées
